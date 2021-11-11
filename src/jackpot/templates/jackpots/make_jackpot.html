@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+make jackpot
+{% endblock title %}
+
+{% block content %}
+    <div class="ui grid">
+        <div class="five wide column"></div>
+            <div class="eleven wide column">
+                <div class="ui large image"> 
+                    <figure><img src="{% static 'media/guess.png'%}" alt="logo image"></figure>
+                </div>
+            </div>  
+        </div>    
+    
+  
+    <h2 style="margin-bottom: 20px;">ARE YOU BORED?</h2> 
+    <h2 style="margin-bottom: 20px;">Make Jackpot</h2>
+    <form action="{% url 'jackpots:confirm-jackpot' %}">
+    <div style="margin-bottom: 20px;">
+        <span>Lucky Pick</span>
+        <input type="text" name="lucky_id" id="lucky_id" required>
+    </div>
+   
+    <div>
+        <input type="submit" value="Guess">
+    </div>
+    </form>
+    </div>
+      
+{% endblock %}

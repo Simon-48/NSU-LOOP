@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jackpot package &#8212; The_NSU_Loop  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="jackpot.migrations package" href="jackpot.migrations.html" />
+    <link rel="prev" title="The_NSU_Loop package" href="The_NSU_Loop.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="jackpot-package">
+<h1>jackpot package<a class="headerlink" href="#jackpot-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jackpot.migrations.html">jackpot.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="jackpot.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jackpot.migrations.html#module-jackpot.migrations.0001_initial">jackpot.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jackpot.migrations.html#module-jackpot.migrations.0002_auto_20210505_0123">jackpot.migrations.0002_auto_20210505_0123 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jackpot.migrations.html#module-jackpot.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jackpot.admin">
+<span id="jackpot-admin-module"></span><h2>jackpot.admin module<a class="headerlink" href="#module-jackpot.admin" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jackpot.apps">
+<span id="jackpot-apps-module"></span><h2>jackpot.apps module<a class="headerlink" href="#module-jackpot.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="jackpot.apps.JackpotConfig">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jackpot.apps.</span></code><code class="sig-name descname"><span class="pre">JackpotConfig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jackpot/apps.html#JackpotConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jackpot.apps.JackpotConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<p>This class contains the app jackpot.</p>
+<dl class="py attribute">
+<dt id="jackpot.apps.JackpotConfig.name">
+<code class="sig-name descname"><span class="pre">name</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'jackpot'</span></em><a class="headerlink" href="#jackpot.apps.JackpotConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-jackpot.models">
+<span id="jackpot-models-module"></span><h2>jackpot.models module<a class="headerlink" href="#module-jackpot.models" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="jackpot.models.Jackpot">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jackpot.models.</span></code><code class="sig-name descname"><span class="pre">Jackpot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jackpot/models.html#Jackpot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jackpot.models.Jackpot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="simple">
+<dt>This class contains the essential fields and behaviors of the data you’re storing. </dt><dd><p>Each model maps to a single database table.</p>
+</dd>
+</dl>
+<p>This class is used to create a database table containg those attributes.</p>
+<dl class="py exception">
+<dt id="jackpot.models.Jackpot.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#jackpot.models.Jackpot.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="jackpot.models.Jackpot.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#jackpot.models.Jackpot.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="jackpot.models.Jackpot.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#jackpot.models.Jackpot.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="jackpot.models.Jackpot.lucky_id">
+<code class="sig-name descname"><span class="pre">lucky_id</span></code><a class="headerlink" href="#jackpot.models.Jackpot.lucky_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="jackpot.models.Jackpot.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#jackpot.models.Jackpot.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jackpot.models.Jackpot.verified">
+<code class="sig-name descname"><span class="pre">verified</span></code><a class="headerlink" href="#jackpot.models.Jackpot.verified" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-jackpot.tests">
+<span id="jackpot-tests-module"></span><h2>jackpot.tests module<a class="headerlink" href="#module-jackpot.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jackpot.urls">
+<span id="jackpot-urls-module"></span><h2>jackpot.urls module<a class="headerlink" href="#module-jackpot.urls" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-jackpot.views">
+<span id="jackpot-views-module"></span><h2>jackpot.views module<a class="headerlink" href="#module-jackpot.views" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="jackpot.views.confirm_jackpot">
+<code class="sig-prename descclassname"><span class="pre">jackpot.views.</span></code><code class="sig-name descname"><span class="pre">confirm_jackpot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jackpot/views.html#confirm_jackpot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jackpot.views.confirm_jackpot" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will get lucky pick id and verify the lucky pick id. If verification is successful
+then will return the url of confirm_jackpot html page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns posts page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jackpot.views.make_jackpot">
+<code class="sig-prename descclassname"><span class="pre">jackpot.views.</span></code><code class="sig-name descname"><span class="pre">make_jackpot</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/jackpot/views.html#make_jackpot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#jackpot.views.make_jackpot" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will return the url of make_jackpot html page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns posts page</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-jackpot">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-jackpot" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">The_NSU_Loop</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="The_NSU_Loop.html">The_NSU_Loop package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">jackpot package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payment.html">payment package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posts.html">posts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html">profiles package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">src</a><ul>
+      <li>Previous: <a href="The_NSU_Loop.html" title="previous chapter">The_NSU_Loop package</a></li>
+      <li>Next: <a href="jackpot.migrations.html" title="next chapter">jackpot.migrations package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Simon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/jackpot.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

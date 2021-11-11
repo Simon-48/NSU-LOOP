@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>posts.views &#8212; The_NSU_Loop  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for posts.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span><span class="p">,</span> <span class="n">redirect</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse_lazy</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Post</span><span class="p">,</span> <span class="n">Like</span>
+<span class="kn">from</span> <span class="nn">profiles.models</span> <span class="kn">import</span> <span class="n">Profile</span>
+<span class="kn">from</span> <span class="nn">.forms</span> <span class="kn">import</span> <span class="n">PostModelForm</span><span class="p">,</span> <span class="n">CommentModelForm</span>
+<span class="kn">from</span> <span class="nn">django.views.generic</span> <span class="kn">import</span> <span class="n">UpdateView</span><span class="p">,</span> <span class="n">DeleteView</span>
+<span class="kn">from</span> <span class="nn">django.contrib</span> <span class="kn">import</span> <span class="n">messages</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.decorators</span> <span class="kn">import</span> <span class="n">login_required</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.mixins</span> <span class="kn">import</span> <span class="n">LoginRequiredMixin</span>
+
+<span class="c1"># Create views here.</span>
+<div class="viewcode-block" id="post_comment_create_and_list_view"><a class="viewcode-back" href="../../posts.html#posts.views.post_comment_create_and_list_view">[docs]</a><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">post_comment_create_and_list_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will create a post request on two separate forms post form and comment form and upon </span>
+<span class="sd">    successfull insertion, it will update the form and will show in the post content or comment body.</span>
+<span class="sd">    This method will only load this page if the user is logged in.</span>
+<span class="sd">       </span>
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: returns posts page</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">qs</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+
+    <span class="c1"># initials</span>
+    <span class="n">p_form</span> <span class="o">=</span> <span class="n">PostModelForm</span><span class="p">()</span>
+    <span class="n">c_form</span> <span class="o">=</span> <span class="n">CommentModelForm</span><span class="p">()</span>
+    <span class="n">post_added</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="s1">&#39;submit_p_form&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="n">p_form</span> <span class="o">=</span> <span class="n">PostModelForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">,</span> <span class="n">request</span><span class="o">.</span><span class="n">FILES</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">p_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">instance</span> <span class="o">=</span> <span class="n">p_form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">author</span> <span class="o">=</span> <span class="n">profile</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">p_form</span> <span class="o">=</span> <span class="n">PostModelForm</span><span class="p">()</span>
+            <span class="n">post_added</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="s1">&#39;submit_c_form&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">:</span>
+        <span class="n">c_form</span> <span class="o">=</span> <span class="n">CommentModelForm</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">c_form</span><span class="o">.</span><span class="n">is_valid</span><span class="p">():</span>
+            <span class="n">instance</span> <span class="o">=</span> <span class="n">c_form</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">commit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">profile</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">post</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;post_id&#39;</span><span class="p">))</span>
+            <span class="n">instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">c_form</span> <span class="o">=</span> <span class="n">CommentModelForm</span><span class="p">()</span>
+
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;qs&#39;</span><span class="p">:</span> <span class="n">qs</span><span class="p">,</span>
+        <span class="s1">&#39;profile&#39;</span><span class="p">:</span> <span class="n">profile</span><span class="p">,</span>
+        <span class="s1">&#39;p_form&#39;</span><span class="p">:</span> <span class="n">p_form</span><span class="p">,</span>
+        <span class="s1">&#39;c_form&#39;</span><span class="p">:</span> <span class="n">c_form</span><span class="p">,</span>
+        <span class="s1">&#39;post_added&#39;</span><span class="p">:</span> <span class="n">post_added</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;posts/main.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="like_unlike_post"><a class="viewcode-back" href="../../posts.html#posts.views.like_unlike_post">[docs]</a><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">like_unlike_post</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will create a like or unlike request on posts and upon successfull insertion, it will </span>
+<span class="sd">    update the like or unlike. If the post status is liked will update it to unliked otherwise update </span>
+<span class="sd">    it to liked. If the post previouly existed and its status is liked then will update it to unliked </span>
+<span class="sd">    othwise will update it to liked.</span>
+<span class="sd">    This method will only load this page if the user is logged in.</span>
+<span class="sd">       </span>
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: redirect the posts page</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">post_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">POST</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;post_id&#39;</span><span class="p">)</span>
+        <span class="n">post_obj</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">post_id</span><span class="p">)</span>
+        <span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">post_obj</span><span class="o">.</span><span class="n">liked</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="n">post_obj</span><span class="o">.</span><span class="n">liked</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">post_obj</span><span class="o">.</span><span class="n">liked</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+
+        <span class="n">like</span><span class="p">,</span> <span class="n">created</span> <span class="o">=</span> <span class="n">Like</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get_or_create</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">profile</span><span class="p">,</span> <span class="n">post_id</span><span class="o">=</span><span class="n">post_id</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">created</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">like</span><span class="o">.</span><span class="n">value</span><span class="o">==</span><span class="s1">&#39;Like&#39;</span><span class="p">:</span>
+                <span class="n">like</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Unlike&#39;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">like</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Like&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">like</span><span class="o">.</span><span class="n">value</span><span class="o">=</span><span class="s1">&#39;Like&#39;</span>
+
+            <span class="n">post_obj</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+            <span class="n">like</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="s1">&#39;posts:main-post-view&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PostDeleteView"><a class="viewcode-back" href="../../posts.html#posts.views.PostDeleteView">[docs]</a><span class="k">class</span> <span class="nc">PostDeleteView</span><span class="p">(</span><span class="n">DeleteView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PostDeleteView inherits from the DeleteView. These allow you to structure your views and reuse </span>
+<span class="sd">    code by harnessing inheritance. All views inherit from the View class, which handles linking the </span>
+<span class="sd">    view into the URLs, HTTP method dispatching and other common features.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;posts/confirm_del.html&#39;</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s1">&#39;posts:main-post-view&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PostDeleteView.get_object"><a class="viewcode-back" href="../../posts.html#posts.views.PostDeleteView.get_object">[docs]</a>    <span class="k">def</span> <span class="nf">get_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method followed a claas based view method. If the user is the owner of the post only then </span>
+<span class="sd">        that particular user will able to delete the post, first that particular user will able to go </span>
+<span class="sd">        into given template link and able to delete the post and will get back to the attached success </span>
+<span class="sd">        url page after deletation. However if the user is not the owner of the post then the user will </span>
+<span class="sd">        not be able to delete the post even if he has the url of the post. For this case it will show a </span>
+<span class="sd">        error message. </span>
+<span class="sd">       </span>
+<span class="sd">        :param name: self - used to access the attributes and methods of the class in python</span>
+<span class="sd">        :param type: reference</span>
+<span class="sd">        :return: str</span>
+<span class="sd">        :param name: *args - used to pass an arbitrary number of arguments to a function</span>
+<span class="sd">        :param type: pass variable</span>
+<span class="sd">        :return: returns variable number</span>
+<span class="sd">        :param name: **kwargs - used to pass key-value parameters to the function</span>
+<span class="sd">        :param type: pass variable</span>
+<span class="sd">        :return: returns key-value parameters</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;pk&#39;</span><span class="p">)</span>
+        <span class="n">obj</span> <span class="o">=</span> <span class="n">Post</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">pk</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">obj</span><span class="o">.</span><span class="n">author</span><span class="o">.</span><span class="n">user</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">:</span>
+            <span class="n">messages</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;You need to be the author of the post in order to delete it&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">obj</span></div></div>
+
+<div class="viewcode-block" id="PostUpdateView"><a class="viewcode-back" href="../../posts.html#posts.views.PostUpdateView">[docs]</a><span class="k">class</span> <span class="nc">PostUpdateView</span><span class="p">(</span><span class="n">UpdateView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    PostUpdateView inherits from the UpdateView. These allow you to structure your views and </span>
+<span class="sd">    reuse code by harnessing inheritance. All views inherit from the View class, which handles</span>
+<span class="sd">    linking the view into the URLs, HTTP method dispatching and other common features.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">form_class</span> <span class="o">=</span> <span class="n">PostModelForm</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Post</span>
+    <span class="n">template_name</span> <span class="o">=</span> <span class="s1">&#39;posts/update.html&#39;</span>
+    <span class="n">success_url</span> <span class="o">=</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s1">&#39;posts:main-post-view&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PostUpdateView.form_valid"><a class="viewcode-back" href="../../posts.html#posts.views.PostUpdateView.form_valid">[docs]</a>    <span class="k">def</span> <span class="nf">form_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        This method followed a claas based view method. If the user is the owner of the post only </span>
+<span class="sd">        then that particular user will able to update the post, first that particular user will able</span>
+<span class="sd">        to go into given template link and able to update the post and will get back to the attached </span>
+<span class="sd">        success url page after updating the post. However if the user is not the owner of the post then </span>
+<span class="sd">        the user will not be able to update the post even if he has the url of the post. For this case </span>
+<span class="sd">        it will show a error message. </span>
+<span class="sd">       </span>
+<span class="sd">        :param name: self - used to access the attributes and methods of the class in python</span>
+<span class="sd">        :param type: reference</span>
+<span class="sd">        :return: str</span>
+<span class="sd">        :param name: form - used to take a form</span>
+<span class="sd">        :param type: take form</span>
+<span class="sd">        :return: returns the form</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">instance</span><span class="o">.</span><span class="n">author</span> <span class="o">==</span> <span class="n">profile</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">form_valid</span><span class="p">(</span><span class="n">form</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">form</span><span class="o">.</span><span class="n">add_error</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;You need to be the author of the post in order to update it&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">form_invalid</span><span class="p">(</span><span class="n">form</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">The_NSU_Loop</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Simon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jackpot.views &#8212; The_NSU_Loop  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for jackpot.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">jackpot.models</span> <span class="kn">import</span> <span class="n">Jackpot</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+
+<span class="c1"># view function for make jackpot page</span>
+<div class="viewcode-block" id="make_jackpot"><a class="viewcode-back" href="../../jackpot.html#jackpot.views.make_jackpot">[docs]</a><span class="k">def</span> <span class="nf">make_jackpot</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will return the url of make_jackpot html page.</span>
+<span class="sd">       </span>
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: returns posts page</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;jackpots/make_jackpot.html&#39;</span><span class="p">)</span></div>
+
+<span class="c1"># view function for confirming jackpot</span>
+<div class="viewcode-block" id="confirm_jackpot"><a class="viewcode-back" href="../../jackpot.html#jackpot.views.confirm_jackpot">[docs]</a><span class="k">def</span> <span class="nf">confirm_jackpot</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This method will get lucky pick id and verify the lucky pick id. If verification is successful</span>
+<span class="sd">    then will return the url of confirm_jackpot html page. </span>
+<span class="sd">       </span>
+<span class="sd">    :param name: request - used to generate responses(Http) depending on the request that it receives</span>
+<span class="sd">    :param type: HttpResponse</span>
+<span class="sd">    :return: returns posts page</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># getting form value</span>
+    <span class="n">lucky_id</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">GET</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;lucky_id&quot;</span><span class="p">)</span>
+
+    <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;confirm&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+
+    <span class="c1"># confirm jackpot</span>
+    <span class="n">jackpot</span> <span class="o">=</span> <span class="n">Jackpot</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">lucky_id</span><span class="o">=</span><span class="n">lucky_id</span><span class="p">,</span> <span class="n">verified</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">jackpot</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">jackpot</span> <span class="o">=</span> <span class="n">jackpot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">jackpot</span><span class="o">.</span><span class="n">verified</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">jackpot</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">context</span><span class="p">[</span><span class="s1">&#39;confirm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;jackpots/confirm_jackpot.html&#39;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">The_NSU_Loop</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Simon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

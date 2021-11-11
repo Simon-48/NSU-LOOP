@@ -1,0 +1,76 @@
+{% url 'home-view' as path_to_home %}
+{% url 'posts:main-post-view' as path_to_posts %}
+{% url 'profiles:my-profile-view' as path_to_my_profile %}
+{% url 'profiles:my-invites-view' as path_to_my_invites %}
+{% url 'profiles:invite-profiles-view' as path_to_invites %}
+{% url 'profiles:all-profiles-view' as path_to_all_profiles %}
+{% url 'profiles:find-view' as path_to_find_view %}
+{% url 'profiles:talent-poll' as path_to_talent_poll %}
+{% url 'payments:make-payment' as path_to_make_payment %}
+{% url 'profiles:search-post' as path_to_search_post %}
+{% url 'profiles:search-friends' as path_to_search_friends %}
+{% url 'jackpots:make-jackpot' as path_to_make_jackpot %}
+{% url 'chats:user_list' as path_to_make_chat %}
+
+
+<div class="ui inverted menu nav mb-7">
+    <div class="ui container">
+        {% if request.user.is_authenticated %}
+            <a href="{{path_to_posts}}" class="{% if request.path == path_to_posts %}active{% endif %} item">
+            NSULOOP
+            </a>
+        {% endif %}
+
+        <div class="right menu">
+            {% if request.user.is_authenticated %}
+            <div class="item">
+                <div class="ui floating dropdown icon button teal"> Friends
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="{{path_to_all_profiles}}" class="{% if request.path == path_to_all_profiles %}active{% endif %} item">
+                            All Profiles
+                        </a>
+                        <a href="{{path_to_my_invites}}" class="{% if request.path == path_to_my_invites %}active{% endif %} item">
+                            Received Invites &nbsp; <div class="ui purple horizontal label">{{invites_num}}</div>
+                        </a>
+                    </div>
+                 </div>
+            </div>
+            
+            <div class="item">
+                <div class="ui floating dropdown icon button teal"> Find
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="{{path_to_search_post}}" class="{% if request.path == path_to_search_post %}active{% endif %} item">
+                            Search Post
+                        </a>
+                        <a href="{{path_to_search_friends}}" class="{% if request.path == path_to_search_friends %}active{% endif %} item">
+                            Search Friend
+                        </a>
+                    </div>
+                </div>
+            </div>  
+
+
+            <a href="{{path_to_my_profile}}" class="{% if request.path == path_to_my_profile %}active{% endif %} item">
+                <img src={{picture.url}} class="ui avatar image">&nbsp;
+                {{ request.user }}
+            </a>
+                
+            <a href="{{path_to_talent_poll}}" class="{% if request.path == path_to_talent_poll %}active{% endif %} item">Talent Poll</a>
+            <a href="{{path_to_make_payment}}" class="{% if request.path == path_to_make_payment %}active{% endif %} item">Payment</a> 
+            <a href="{{path_to_make_jackpot}}" class="{% if request.path == path_to_make_jackpot %}active{% endif %} item">Jackpot</a> 
+            <a href="{{path_to_make_chat}}" class="{% if request.path == path_to_make_chat %}active{% endif %} item">Chat</a>
+            
+            <a href="" class="ui item">
+                Logout
+            </a>
+            
+            {% else %}
+            <a href="" class="ui item">
+                Login
+            </a>
+            {% endif %}
+        </div>
+    </div>
+</div>

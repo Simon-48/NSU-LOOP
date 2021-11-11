@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}main page{% endblock title %}
+
+{% block content %}
+<div class="ui grid"> 
+    <div class="eleven wide column">
+        <h1>
+            <img src="{% static 'media/txt.jpg'%}" class="ui avatar image">
+            <b>{{ to_user.username }}</b>   
+        </h1>
+    </div>
+
+    <br>
+    
+    <div class="eleven wide column">
+        {% for obj in chats %}
+            <p>
+                <img src="{% static 'media/text.jpg'%}" class="ui avatar image">
+                {{ obj.from_user }} 
+            </p> 
+            <p>{{ obj.message }} </p>
+            <br>
+        {% endfor %}
+    </div>
+</div>
+<div>
+    <form action="" method="POST" class='ui fluid form'>
+        {% csrf_token %}
+        {{ chat_form }}
+        <button type="submit" name="submit_chat_form" class="ui primary button mt-5 w-full">Send</button>
+    </form>
+</div>
+{% endblock content %}

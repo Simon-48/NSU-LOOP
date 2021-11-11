@@ -1,0 +1,875 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>profiles package &#8212; The_NSU_Loop  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="profiles.migrations package" href="profiles.migrations.html" />
+    <link rel="prev" title="posts.migrations package" href="posts.migrations.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="profiles-package">
+<h1>profiles package<a class="headerlink" href="#profiles-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="profiles.migrations.html">profiles.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0001_initial">profiles.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0002_relationship">profiles.migrations.0002_relationship module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0003_auto_20210428_0933">profiles.migrations.0003_auto_20210428_0933 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0004_auto_20210428_1440">profiles.migrations.0004_auto_20210428_1440 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0005_skill">profiles.migrations.0005_skill module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations.0006_auto_20210504_0034">profiles.migrations.0006_auto_20210504_0034 module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.migrations.html#module-profiles.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-profiles.admin">
+<span id="profiles-admin-module"></span><h2>profiles.admin module<a class="headerlink" href="#module-profiles.admin" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-profiles.apps">
+<span id="profiles-apps-module"></span><h2>profiles.apps module<a class="headerlink" href="#module-profiles.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="profiles.apps.ProfilesConfig">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">profiles.apps.</span></code><code class="sig-name descname"><span class="pre">ProfilesConfig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/apps.html#ProfilesConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.apps.ProfilesConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<dl class="py attribute">
+<dt id="profiles.apps.ProfilesConfig.name">
+<code class="sig-name descname"><span class="pre">name</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'profiles'</span></em><a class="headerlink" href="#profiles.apps.ProfilesConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.apps.ProfilesConfig.ready">
+<code class="sig-name descname"><span class="pre">ready</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/apps.html#ProfilesConfig.ready"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.apps.ProfilesConfig.ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method in subclasses to run code when Django starts.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-profiles.context_processors">
+<span id="profiles-context-processors-module"></span><h2>profiles.context_processors module<a class="headerlink" href="#module-profiles.context_processors" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="profiles.context_processors.invatations_received_no">
+<code class="sig-prename descclassname"><span class="pre">profiles.context_processors.</span></code><code class="sig-name descname"><span class="pre">invatations_received_no</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/context_processors.html#invatations_received_no"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.context_processors.invatations_received_no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.context_processors.profile_pic">
+<code class="sig-prename descclassname"><span class="pre">profiles.context_processors.</span></code><code class="sig-name descname"><span class="pre">profile_pic</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/context_processors.html#profile_pic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.context_processors.profile_pic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-profiles.forms">
+<span id="profiles-forms-module"></span><h2>profiles.forms module<a class="headerlink" href="#module-profiles.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="profiles.forms.ProfileModelForm">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">profiles.forms.</span></code><code class="sig-name descname"><span class="pre">ProfileModelForm</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data=None</span></em>, <em class="sig-param"><span class="pre">files=None</span></em>, <em class="sig-param"><span class="pre">auto_id='id_%s'</span></em>, <em class="sig-param"><span class="pre">prefix=None</span></em>, <em class="sig-param"><span class="pre">initial=None</span></em>, <em class="sig-param"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></em>, <em class="sig-param"><span class="pre">label_suffix=None</span></em>, <em class="sig-param"><span class="pre">empty_permitted=False</span></em>, <em class="sig-param"><span class="pre">instance=None</span></em>, <em class="sig-param"><span class="pre">use_required_attribute=None</span></em>, <em class="sig-param"><span class="pre">renderer=None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/forms.html#ProfileModelForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.ProfileModelForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<dl class="py class">
+<dt id="profiles.forms.ProfileModelForm.Meta">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Meta</span></code><a class="reference internal" href="_modules/profiles/forms.html#ProfileModelForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.forms.ProfileModelForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="profiles.forms.ProfileModelForm.Meta.fields">
+<code class="sig-name descname"><span class="pre">fields</span></code><em class="property"> <span class="pre">=</span> <span class="pre">('first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'bio',</span> <span class="pre">'major',</span> <span class="pre">'cgpa',</span> <span class="pre">'email',</span> <span class="pre">'phone',</span> <span class="pre">'avatar')</span></em><a class="headerlink" href="#profiles.forms.ProfileModelForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.forms.ProfileModelForm.Meta.model">
+<code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#profiles.forms.ProfileModelForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#profiles.models.Profile" title="profiles.models.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">profiles.models.Profile</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.forms.ProfileModelForm.base_fields">
+<code class="sig-name descname"><span class="pre">base_fields</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'avatar':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;,</span> <span class="pre">'bio':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'cgpa':</span> <span class="pre">&lt;django.forms.fields.FloatField</span> <span class="pre">object&gt;,</span> <span class="pre">'email':</span> <span class="pre">&lt;django.forms.fields.EmailField</span> <span class="pre">object&gt;,</span> <span class="pre">'first_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'last_name':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'major':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'phone':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#profiles.forms.ProfileModelForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.forms.ProfileModelForm.declared_fields">
+<code class="sig-name descname"><span class="pre">declared_fields</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#profiles.forms.ProfileModelForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.forms.ProfileModelForm.media">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">media</span></code><a class="headerlink" href="#profiles.forms.ProfileModelForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-profiles.models">
+<span id="profiles-models-module"></span><h2>profiles.models module<a class="headerlink" href="#module-profiles.models" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="profiles.models.Profile">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">profiles.models.</span></code><code class="sig-name descname"><span class="pre">Profile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">first_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">major</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cgpa</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grad_year</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">country</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">avatar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skills</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">slug</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#Profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Profile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="profiles.models.Profile.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#profiles.models.Profile.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="profiles.models.Profile.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#profiles.models.Profile.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.avatar">
+<code class="sig-name descname"><span class="pre">avatar</span></code><a class="headerlink" href="#profiles.models.Profile.avatar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.bio">
+<code class="sig-name descname"><span class="pre">bio</span></code><a class="headerlink" href="#profiles.models.Profile.bio" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.cgpa">
+<code class="sig-name descname"><span class="pre">cgpa</span></code><a class="headerlink" href="#profiles.models.Profile.cgpa" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.comment_set">
+<code class="sig-name descname"><span class="pre">comment_set</span></code><a class="headerlink" href="#profiles.models.Profile.comment_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.country">
+<code class="sig-name descname"><span class="pre">country</span></code><a class="headerlink" href="#profiles.models.Profile.country" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.created">
+<code class="sig-name descname"><span class="pre">created</span></code><a class="headerlink" href="#profiles.models.Profile.created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.email">
+<code class="sig-name descname"><span class="pre">email</span></code><a class="headerlink" href="#profiles.models.Profile.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.first_name">
+<code class="sig-name descname"><span class="pre">first_name</span></code><a class="headerlink" href="#profiles.models.Profile.first_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.friends">
+<code class="sig-name descname"><span class="pre">friends</span></code><a class="headerlink" href="#profiles.models.Profile.friends" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.get_absolute_url">
+<code class="sig-name descname"><span class="pre">get_absolute_url</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#Profile.get_absolute_url"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Profile.get_absolute_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.get_all_authors_posts">
+<code class="sig-name descname"><span class="pre">get_all_authors_posts</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#Profile.get_all_authors_posts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Profile.get_all_authors_posts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.get_friends">
+<code class="sig-name descname"><span class="pre">get_friends</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#Profile.get_friends"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Profile.get_friends" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.get_friends_no">
+<code class="sig-name descname"><span class="pre">get_friends_no</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#Profile.get_friends_no"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Profile.get_friends_no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.get_likes_given_no">
+<code class="sig-name descname"><span class="pre">get_likes_given_no</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#Profile.get_likes_given_no"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Profile.get_likes_given_no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.get_likes_recieved_no">
+<code class="sig-name descname"><span class="pre">get_likes_recieved_no</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#Profile.get_likes_recieved_no"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Profile.get_likes_recieved_no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.get_next_by_created">
+<code class="sig-name descname"><span class="pre">get_next_by_created</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=True</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.models.Profile.get_next_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.get_next_by_updated">
+<code class="sig-name descname"><span class="pre">get_next_by_updated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=True</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.models.Profile.get_next_by_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.get_posts_no">
+<code class="sig-name descname"><span class="pre">get_posts_no</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#Profile.get_posts_no"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Profile.get_posts_no" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.get_previous_by_created">
+<code class="sig-name descname"><span class="pre">get_previous_by_created</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.models.Profile.get_previous_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.get_previous_by_updated">
+<code class="sig-name descname"><span class="pre">get_previous_by_updated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.models.Profile.get_previous_by_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.grad_year">
+<code class="sig-name descname"><span class="pre">grad_year</span></code><a class="headerlink" href="#profiles.models.Profile.grad_year" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#profiles.models.Profile.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.last_name">
+<code class="sig-name descname"><span class="pre">last_name</span></code><a class="headerlink" href="#profiles.models.Profile.last_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.like_set">
+<code class="sig-name descname"><span class="pre">like_set</span></code><a class="headerlink" href="#profiles.models.Profile.like_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.likes">
+<code class="sig-name descname"><span class="pre">likes</span></code><a class="headerlink" href="#profiles.models.Profile.likes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.major">
+<code class="sig-name descname"><span class="pre">major</span></code><a class="headerlink" href="#profiles.models.Profile.major" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;profiles.models.ProfileManager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#profiles.models.Profile.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.phone">
+<code class="sig-name descname"><span class="pre">phone</span></code><a class="headerlink" href="#profiles.models.Profile.phone" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.posts">
+<code class="sig-name descname"><span class="pre">posts</span></code><a class="headerlink" href="#profiles.models.Profile.posts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.receiver">
+<code class="sig-name descname"><span class="pre">receiver</span></code><a class="headerlink" href="#profiles.models.Profile.receiver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Profile.save">
+<code class="sig-name descname"><span class="pre">save</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#Profile.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Profile.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save the current instance. Override this in a subclass if you want to
+control the saving process.</p>
+<p>The ‘force_insert’ and ‘force_update’ parameters can be used to insist
+that the “save” must be an SQL insert or update (or equivalent for
+non-SQL backends), respectively. Normally, they should not be set.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.sender">
+<code class="sig-name descname"><span class="pre">sender</span></code><a class="headerlink" href="#profiles.models.Profile.sender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.skills">
+<code class="sig-name descname"><span class="pre">skills</span></code><a class="headerlink" href="#profiles.models.Profile.skills" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.slug">
+<code class="sig-name descname"><span class="pre">slug</span></code><a class="headerlink" href="#profiles.models.Profile.slug" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.updated">
+<code class="sig-name descname"><span class="pre">updated</span></code><a class="headerlink" href="#profiles.models.Profile.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.user">
+<code class="sig-name descname"><span class="pre">user</span></code><a class="headerlink" href="#profiles.models.Profile.user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a one-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Restaurant.place</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Profile.user_id">
+<code class="sig-name descname"><span class="pre">user_id</span></code><a class="headerlink" href="#profiles.models.Profile.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="profiles.models.ProfileManager">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">profiles.models.</span></code><code class="sig-name descname"><span class="pre">ProfileManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#ProfileManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.ProfileManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="py method">
+<dt id="profiles.models.ProfileManager.get_all_profiles">
+<code class="sig-name descname"><span class="pre">get_all_profiles</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">me</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#ProfileManager.get_all_profiles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.ProfileManager.get_all_profiles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.ProfileManager.get_all_profiles_to_invite">
+<code class="sig-name descname"><span class="pre">get_all_profiles_to_invite</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#ProfileManager.get_all_profiles_to_invite"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.ProfileManager.get_all_profiles_to_invite" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="profiles.models.Relationship">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">profiles.models.</span></code><code class="sig-name descname"><span class="pre">Relationship</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receiver</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">status</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">updated</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#Relationship"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Relationship" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="profiles.models.Relationship.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#profiles.models.Relationship.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="profiles.models.Relationship.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#profiles.models.Relationship.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Relationship.created">
+<code class="sig-name descname"><span class="pre">created</span></code><a class="headerlink" href="#profiles.models.Relationship.created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Relationship.get_next_by_created">
+<code class="sig-name descname"><span class="pre">get_next_by_created</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=True</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.models.Relationship.get_next_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Relationship.get_next_by_updated">
+<code class="sig-name descname"><span class="pre">get_next_by_updated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=True</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.models.Relationship.get_next_by_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Relationship.get_previous_by_created">
+<code class="sig-name descname"><span class="pre">get_previous_by_created</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.models.Relationship.get_previous_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Relationship.get_previous_by_updated">
+<code class="sig-name descname"><span class="pre">get_previous_by_updated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.models.Relationship.get_previous_by_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="profiles.models.Relationship.get_status_display">
+<code class="sig-name descname"><span class="pre">get_status_display</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">status&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#profiles.models.Relationship.get_status_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Relationship.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#profiles.models.Relationship.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Relationship.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;profiles.models.RelationshipManager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#profiles.models.Relationship.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Relationship.receiver">
+<code class="sig-name descname"><span class="pre">receiver</span></code><a class="headerlink" href="#profiles.models.Relationship.receiver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Relationship.receiver_id">
+<code class="sig-name descname"><span class="pre">receiver_id</span></code><a class="headerlink" href="#profiles.models.Relationship.receiver_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Relationship.sender">
+<code class="sig-name descname"><span class="pre">sender</span></code><a class="headerlink" href="#profiles.models.Relationship.sender" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Relationship.sender_id">
+<code class="sig-name descname"><span class="pre">sender_id</span></code><a class="headerlink" href="#profiles.models.Relationship.sender_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Relationship.status">
+<code class="sig-name descname"><span class="pre">status</span></code><a class="headerlink" href="#profiles.models.Relationship.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Relationship.updated">
+<code class="sig-name descname"><span class="pre">updated</span></code><a class="headerlink" href="#profiles.models.Relationship.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="profiles.models.RelationshipManager">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">profiles.models.</span></code><code class="sig-name descname"><span class="pre">RelationshipManager</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#RelationshipManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.RelationshipManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.manager.Manager</span></code></p>
+<dl class="py method">
+<dt id="profiles.models.RelationshipManager.invatations_received">
+<code class="sig-name descname"><span class="pre">invatations_received</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">receiver</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#RelationshipManager.invatations_received"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.RelationshipManager.invatations_received" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="profiles.models.Skill">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">profiles.models.</span></code><code class="sig-name descname"><span class="pre">Skill</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/models.html#Skill"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.models.Skill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="py exception">
+<dt id="profiles.models.Skill.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#profiles.models.Skill.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="profiles.models.Skill.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#profiles.models.Skill.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Skill.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#profiles.models.Skill.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Skill.name">
+<code class="sig-name descname"><span class="pre">name</span></code><a class="headerlink" href="#profiles.models.Skill.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.models.Skill.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#profiles.models.Skill.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-profiles.signals">
+<span id="profiles-signals-module"></span><h2>profiles.signals module<a class="headerlink" href="#module-profiles.signals" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="profiles.signals.post_save_add_to_friends">
+<code class="sig-prename descclassname"><span class="pre">profiles.signals.</span></code><code class="sig-name descname"><span class="pre">post_save_add_to_friends</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/signals.html#post_save_add_to_friends"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.signals.post_save_add_to_friends" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.signals.post_save_create_profile">
+<code class="sig-prename descclassname"><span class="pre">profiles.signals.</span></code><code class="sig-name descname"><span class="pre">post_save_create_profile</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">created</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/signals.html#post_save_create_profile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.signals.post_save_create_profile" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.signals.pre_delete_remove_from_friends">
+<code class="sig-prename descclassname"><span class="pre">profiles.signals.</span></code><code class="sig-name descname"><span class="pre">pre_delete_remove_from_friends</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sender</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/signals.html#pre_delete_remove_from_friends"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.signals.pre_delete_remove_from_friends" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-profiles.tests">
+<span id="profiles-tests-module"></span><h2>profiles.tests module<a class="headerlink" href="#module-profiles.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-profiles.urls">
+<span id="profiles-urls-module"></span><h2>profiles.urls module<a class="headerlink" href="#module-profiles.urls" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-profiles.utils">
+<span id="profiles-utils-module"></span><h2>profiles.utils module<a class="headerlink" href="#module-profiles.utils" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="profiles.utils.get_random_code">
+<code class="sig-prename descclassname"><span class="pre">profiles.utils.</span></code><code class="sig-name descname"><span class="pre">get_random_code</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/utils.html#get_random_code"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.utils.get_random_code" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-profiles.views">
+<span id="profiles-views-module"></span><h2>profiles.views module<a class="headerlink" href="#module-profiles.views" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="profiles.views.ProfileDetailView">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">ProfileDetailView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#ProfileDetailView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.ProfileDetailView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.views.generic.detail.DetailView</span></code></p>
+<dl class="py method">
+<dt id="profiles.views.ProfileDetailView.get_context_data">
+<code class="sig-name descname"><span class="pre">get_context_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#ProfileDetailView.get_context_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.ProfileDetailView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert the single object into the context dict.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.views.ProfileDetailView.model">
+<code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#profiles.views.ProfileDetailView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#profiles.models.Profile" title="profiles.models.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">profiles.models.Profile</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.views.ProfileDetailView.template_name">
+<code class="sig-name descname"><span class="pre">template_name</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'profiles/detail.html'</span></em><a class="headerlink" href="#profiles.views.ProfileDetailView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="profiles.views.ProfileListView">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">ProfileListView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#ProfileListView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.ProfileListView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.contrib.auth.mixins.LoginRequiredMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">django.views.generic.list.ListView</span></code></p>
+<dl class="py method">
+<dt id="profiles.views.ProfileListView.get_context_data">
+<code class="sig-name descname"><span class="pre">get_context_data</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#ProfileListView.get_context_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.ProfileListView.get_context_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the context for this view.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="profiles.views.ProfileListView.get_queryset">
+<code class="sig-name descname"><span class="pre">get_queryset</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#ProfileListView.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.ProfileListView.get_queryset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of items for this view.</p>
+<p>The return value must be an iterable and may be an instance of
+<cite>QuerySet</cite> in which case <cite>QuerySet</cite> specific behavior will be enabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.views.ProfileListView.model">
+<code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#profiles.views.ProfileListView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#profiles.models.Profile" title="profiles.models.Profile"><code class="xref py py-class docutils literal notranslate"><span class="pre">profiles.models.Profile</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="profiles.views.ProfileListView.template_name">
+<code class="sig-name descname"><span class="pre">template_name</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'profiles/profile_list.html'</span></em><a class="headerlink" href="#profiles.views.ProfileListView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.accept_invatation">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">accept_invatation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#accept_invatation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.accept_invatation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.find_view">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">find_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#find_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.find_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.friend_profile_view">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">friend_profile_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#friend_profile_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.friend_profile_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.invite_profiles_list_view">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">invite_profiles_list_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#invite_profiles_list_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.invite_profiles_list_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.invites_received_view">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">invites_received_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#invites_received_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.invites_received_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.my_profile_view">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">my_profile_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#my_profile_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.my_profile_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.profiles_list_view">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">profiles_list_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#profiles_list_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.profiles_list_view" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.reject_invatation">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">reject_invatation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#reject_invatation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.reject_invatation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.remove_from_friends">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">remove_from_friends</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#remove_from_friends"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.remove_from_friends" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.save_talen_poll">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">save_talen_poll</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skill</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">userId</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#save_talen_poll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.save_talen_poll" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.search_friends">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">search_friends</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#search_friends"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.search_friends" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.search_post">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">search_post</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#search_post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.search_post" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.send_invatation">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">send_invatation</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#send_invatation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.send_invatation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="profiles.views.talent_poll">
+<code class="sig-prename descclassname"><span class="pre">profiles.views.</span></code><code class="sig-name descname"><span class="pre">talent_poll</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/profiles/views.html#talent_poll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#profiles.views.talent_poll" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-profiles">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-profiles" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">The_NSU_Loop</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="The_NSU_Loop.html">The_NSU_Loop package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jackpot.html">jackpot package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payment.html">payment package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posts.html">posts package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">profiles package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">src</a><ul>
+      <li>Previous: <a href="posts.migrations.html" title="previous chapter">posts.migrations package</a></li>
+      <li>Next: <a href="profiles.migrations.html" title="next chapter">profiles.migrations package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Simon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/profiles.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

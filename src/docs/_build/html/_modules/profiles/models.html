@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>profiles.models &#8212; The_NSU_Loop  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for profiles.models</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.db</span> <span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">get_random_code</span>
+<span class="kn">from</span> <span class="nn">django.template.defaultfilters</span> <span class="kn">import</span> <span class="n">slugify</span>
+<span class="kn">from</span> <span class="nn">django.db.models</span> <span class="kn">import</span> <span class="n">Q</span>
+
+<span class="c1"># Create your models here.</span>
+<div class="viewcode-block" id="Skill"><a class="viewcode-back" href="../../profiles.html#profiles.forms.Skill">[docs]</a><span class="k">class</span> <span class="nc">Skill</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span></div>
+
+<div class="viewcode-block" id="ProfileManager"><a class="viewcode-back" href="../../profiles.html#profiles.forms.ProfileManager">[docs]</a><span class="k">class</span> <span class="nc">ProfileManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
+
+<div class="viewcode-block" id="ProfileManager.get_all_profiles_to_invite"><a class="viewcode-back" href="../../profiles.html#profiles.forms.ProfileManager.get_all_profiles_to_invite">[docs]</a>    <span class="k">def</span> <span class="nf">get_all_profiles_to_invite</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sender</span><span class="p">):</span>
+        <span class="n">profiles</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">sender</span><span class="p">)</span>
+        <span class="n">profile</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">sender</span><span class="p">)</span>
+        <span class="n">qs</span> <span class="o">=</span> <span class="n">Relationship</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">Q</span><span class="p">(</span><span class="n">sender</span><span class="o">=</span><span class="n">profile</span><span class="p">)</span> <span class="o">|</span> <span class="n">Q</span><span class="p">(</span><span class="n">receiver</span><span class="o">=</span><span class="n">profile</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">qs</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#########&quot;</span><span class="p">)</span>
+
+        <span class="n">accepted</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([])</span>
+        <span class="k">for</span> <span class="n">rel</span> <span class="ow">in</span> <span class="n">qs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">rel</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;accepted&#39;</span><span class="p">:</span>
+                <span class="n">accepted</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">rel</span><span class="o">.</span><span class="n">receiver</span><span class="p">)</span>
+                <span class="n">accepted</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">rel</span><span class="o">.</span><span class="n">sender</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">accepted</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#########&quot;</span><span class="p">)</span>
+
+        <span class="n">available</span> <span class="o">=</span> <span class="p">[</span><span class="n">profile</span> <span class="k">for</span> <span class="n">profile</span> <span class="ow">in</span> <span class="n">profiles</span> <span class="k">if</span> <span class="n">profile</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">accepted</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">available</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;#########&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">available</span></div>
+        
+
+<div class="viewcode-block" id="ProfileManager.get_all_profiles"><a class="viewcode-back" href="../../profiles.html#profiles.forms.ProfileManager.get_all_profiles">[docs]</a>    <span class="k">def</span> <span class="nf">get_all_profiles</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">me</span><span class="p">):</span>
+        <span class="n">profiles</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">exclude</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">me</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">profiles</span></div></div>
+
+
+<div class="viewcode-block" id="Profile"><a class="viewcode-back" href="../../profiles.html#profiles.forms.Profile">[docs]</a><span class="k">class</span> <span class="nc">Profile</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">first_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">last_name</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">OneToOneField</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
+    <span class="n">bio</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">TextField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;no bio...&quot;</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">EmailField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">phone</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">major</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cgpa</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">FloatField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">grad_year</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">country</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">avatar</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ImageField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s1">&#39;avatar.png&#39;</span><span class="p">,</span> <span class="n">upload_to</span><span class="o">=</span><span class="s1">&#39;avatars/&#39;</span><span class="p">)</span>
+    <span class="n">friends</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ManyToManyField</span><span class="p">(</span><span class="n">User</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;friends&#39;</span><span class="p">)</span>
+    <span class="n">skills</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">JSONField</span><span class="p">(</span><span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">null</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">slug</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">SlugField</span><span class="p">(</span><span class="n">unique</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">blank</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">objects</span> <span class="o">=</span> <span class="n">ProfileManager</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">username</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">created</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<div class="viewcode-block" id="Profile.get_absolute_url"><a class="viewcode-back" href="../../profiles.html#profiles.forms.Profile.get_absolute_url">[docs]</a>    <span class="k">def</span> <span class="nf">get_absolute_url</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="s2">&quot;profiles:profile-detail-view&quot;</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;slug&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">slug</span><span class="p">})</span></div>
+    
+<div class="viewcode-block" id="Profile.get_friends"><a class="viewcode-back" href="../../profiles.html#profiles.forms.Profile.get_friends">[docs]</a>    <span class="k">def</span> <span class="nf">get_friends</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">friends</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Profile.get_friends_no"><a class="viewcode-back" href="../../profiles.html#profiles.forms.Profile.get_friends_no">[docs]</a>    <span class="k">def</span> <span class="nf">get_friends_no</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">friends</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Profile.get_posts_no"><a class="viewcode-back" href="../../profiles.html#profiles.forms.Profile.get_posts_no">[docs]</a>    <span class="k">def</span> <span class="nf">get_posts_no</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">posts</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Profile.get_all_authors_posts"><a class="viewcode-back" href="../../profiles.html#profiles.forms.Profile.get_all_authors_posts">[docs]</a>    <span class="k">def</span> <span class="nf">get_all_authors_posts</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">posts</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Profile.get_likes_given_no"><a class="viewcode-back" href="../../profiles.html#profiles.forms.Profile.get_likes_given_no">[docs]</a>    <span class="k">def</span> <span class="nf">get_likes_given_no</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">likes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">like_set</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="n">total_liked</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">likes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">item</span><span class="o">.</span><span class="n">value</span><span class="o">==</span><span class="s1">&#39;Like&#39;</span><span class="p">:</span>
+                <span class="n">total_liked</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">total_liked</span></div>
+
+<div class="viewcode-block" id="Profile.get_likes_recieved_no"><a class="viewcode-back" href="../../profiles.html#profiles.forms.Profile.get_likes_recieved_no">[docs]</a>    <span class="k">def</span> <span class="nf">get_likes_recieved_no</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">posts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">posts</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+        <span class="n">total_liked</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">posts</span><span class="p">:</span>
+            <span class="n">total_liked</span> <span class="o">+=</span> <span class="n">item</span><span class="o">.</span><span class="n">liked</span><span class="o">.</span><span class="n">all</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">total_liked</span></div>
+
+
+    <span class="n">__initial_first_name</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">__initial_last_name</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__initial_first_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__initial_last_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span>
+
+<div class="viewcode-block" id="Profile.save"><a class="viewcode-back" href="../../profiles.html#profiles.forms.Profile.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">ex</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">to_slug</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">slug</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__initial_first_name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__initial_last_name</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">slug</span><span class="o">==</span><span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_name</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="p">:</span>
+                <span class="n">to_slug</span> <span class="o">=</span> <span class="n">slugify</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">first_name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last_name</span><span class="p">))</span>
+                <span class="n">ex</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">slug</span><span class="o">=</span><span class="n">to_slug</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+                <span class="k">while</span> <span class="n">ex</span><span class="p">:</span>
+                    <span class="n">to_slug</span> <span class="o">=</span> <span class="n">slugify</span><span class="p">(</span><span class="n">to_slug</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">get_random_code</span><span class="p">()))</span>
+                    <span class="n">ex</span> <span class="o">=</span> <span class="n">Profile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">slug</span><span class="o">=</span><span class="n">to_slug</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">to_slug</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">user</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">slug</span> <span class="o">=</span> <span class="n">to_slug</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
+
+<span class="n">STATUS_CHOICES</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s1">&#39;send&#39;</span><span class="p">,</span> <span class="s1">&#39;send&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;accepted&#39;</span><span class="p">,</span> <span class="s1">&#39;accepted&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<div class="viewcode-block" id="RelationshipManager"><a class="viewcode-back" href="../../profiles.html#profiles.forms.RelationshipManager">[docs]</a><span class="k">class</span> <span class="nc">RelationshipManager</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Manager</span><span class="p">):</span>
+<div class="viewcode-block" id="RelationshipManager.invatations_received"><a class="viewcode-back" href="../../profiles.html#profiles.forms.RelationshipManager.invatations_received">[docs]</a>    <span class="k">def</span> <span class="nf">invatations_received</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">receiver</span><span class="p">):</span>
+        <span class="n">qs</span> <span class="o">=</span> <span class="n">Relationship</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">receiver</span><span class="o">=</span><span class="n">receiver</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;send&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">qs</span></div></div>
+
+
+<div class="viewcode-block" id="Relationship"><a class="viewcode-back" href="../../profiles.html#profiles.forms.Relationship">[docs]</a><span class="k">class</span> <span class="nc">Relationship</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">sender</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Profile</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;sender&#39;</span><span class="p">)</span>
+    <span class="n">receiver</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Profile</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;receiver&#39;</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">STATUS_CHOICES</span><span class="p">)</span>
+    <span class="n">updated</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">created</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">DateTimeField</span><span class="p">(</span><span class="n">auto_now_add</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">objects</span> <span class="o">=</span> <span class="n">RelationshipManager</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">receiver</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">The_NSU_Loop</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">src</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Simon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

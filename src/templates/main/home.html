@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %} 
+<div class="ui grid">
+    <div class="five wide column"></div>
+        <div class="eleven wide column">
+            <div class="ui large image"> 
+                <figure><img src="{% static 'media/logo.png'%}" alt="logo image"></figure>
+            </div>
+        </div>
+        
+        <div class="row"></div>
+            <div class="four wide column"></div>
+                <div class="seven wide column">
+                    <div class="ui segment">&nbsp &nbsp &nbsp &nbsp &nbsp 
+                        {{welcome}} 
+                        <br>
+                        &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                        {{user}} 
+                    </div>    
+                </div>
+{% endblock content %}
+
+{% block scripts %}
+    <script>
+        $(document).ready(function(){
+            console.log('working')
+        })
+    </script>
+{% endblock scripts %}

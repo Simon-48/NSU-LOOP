@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% block title %} Search Friends {% endblock title %} 
+{% block content %}
+<div>
+  <h3>Search friends by</h3>
+  <br>
+</div>
+<form action="">
+  <div class="col-md-3" style="margin-bottom: 10px;">
+    <span style="margin-right: 7px;">Name</span>
+    <input type="text" class="form-control" name="name" id="name" value="{{ name }}" />
+  </div>
+  <div class="col-md-3" style="margin-bottom: 10px;">
+    <span style="margin-right: 7px;">Email</span>
+    <input type="email" class="form-control" name="email" id="email" value="{{ email }}" />
+  </div>
+  <div class="col-md-3" style="margin-bottom: 10px;">
+    <span style="margin-right: 7px;">Phone</span>
+    <input type="text" class="form-control" name="phone" id="phone" value="{{ phone }}" />
+  </div>
+
+  <div class="mt-4 mb-4" style="margin-bottom: 10px;">
+    <p>You can also search friends using following property:</p>
+  </div>
+
+  <div class="col-md-3" style="margin-bottom: 10px;">
+    <span style="margin-right: 7px;">CGPA</span>
+    <input type="text" class="form-control" name="cgpa" id="cgpa" value="{{ cgpa }}" />
+  </div>
+  <div class="col-md-3" style="margin-bottom: 10px;">
+    <span style="margin-right: 7px;">Graduation Year</span>
+    <input type="number" class="form-control" name="grad_year" id="grad_year" value="{{ grad_year }}" />
+  </div>
+  <div class="col-md-3 mb-4" style="margin-bottom: 10px;">
+    <span style="margin-right: 7px;">Major</span>
+    <input type="text" class="form-control" name="major" id="major" value="{{ major }}" />
+  </div>
+
+  <div class="col-md-2" style="margin-bottom: 10px;">
+    <input type="submit" class="btn btn-primary" value="Search"/>
+  </div>
+</form>
+<br/>
+<br/>
+{% if empty_result %}
+  <h3>No friends found</h3>
+{% endif %}
+<div>
+  {% for friend in friends %}
+  <div class="ui card">
+    <div class="content">
+      <a href="{% url 'profiles:friend-profile-view' friend.user.id %}">
+        {{ friend.first_name }} {{ "  " }} {{ friend.last_name }}
+      </a>
+      <br>
+      {{ friend.email }}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

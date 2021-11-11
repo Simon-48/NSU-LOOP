@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+make payment
+{% endblock title %}
+
+{% block content %}
+  <h2 style="margin-bottom: 20px;">Make Payment</h2>
+  <form action="{% url 'payments:confirm-payment' %}">
+    <div style="margin-bottom: 20px;">
+      <span>Phone</span>
+      <input type="text" name="phone" id="phone" required>
+    </div>
+    <div style="margin-bottom: 20px;">
+      <span>Transaction ID</span>
+      <input type="text" name="transaction_id" id="transaction_id" required>
+    </div>
+    <div>
+      <input type="submit" value="Make Payment">
+    </div>
+  </form>
+{% endblock %}

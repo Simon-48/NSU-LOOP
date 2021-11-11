@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}main page{% endblock title %}
+
+{% block content %}
+<div class="ui grid">
+    <div class="eleven wide column">
+        <h1>
+            <img src={{picture.url}} class="ui avatar image">
+            Chat List
+        </h1>
+
+        <br>
+        
+        {% for obj in users %}
+            <div class="ui segment mb-5">    
+                <p>
+                    <img src="{% static 'media/msg.png'%}" class="ui avatar image">
+                    <a href={{obj.id}}>{{ obj.username }}</a>
+                </p>
+                <br>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

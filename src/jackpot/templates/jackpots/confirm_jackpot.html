@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+confirmm jackpot
+{% endblock title %}
+
+{% block content %}
+
+<div class="ui grid">
+    <div class="five wide column"></div>
+        <div class="eleven wide column">
+            <div class="ui large image"> 
+                <figure><img src="{% static 'media/jackpot.png'%}" alt="logo image"></figure>
+            </div>
+        </div>  
+    </div>
+
+    {% if confirm %}
+        <h2>Winner!!!!</h2>
+    {% else %}
+        <h2>Try Again??</h2>
+    
+        <a href="{% url 'jackpots:make-jackpot' %}">Back to Jackpot page</a>
+    
+    {% endif %}
+    
+</div>  
+    
+{% endblock %}

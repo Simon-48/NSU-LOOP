@@ -1,0 +1,821 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>posts package &#8212; The_NSU_Loop  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="posts.migrations package" href="posts.migrations.html" />
+    <link rel="prev" title="payment.migrations package" href="payment.migrations.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="posts-package">
+<h1>posts package<a class="headerlink" href="#posts-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="posts.migrations.html">posts.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations.0001_initial">posts.migrations.0001_initial module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="posts.migrations.html#module-posts.migrations">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-posts.admin">
+<span id="posts-admin-module"></span><h2>posts.admin module<a class="headerlink" href="#module-posts.admin" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-posts.apps">
+<span id="posts-apps-module"></span><h2>posts.apps module<a class="headerlink" href="#module-posts.apps" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="posts.apps.PostsConfig">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">posts.apps.</span></code><code class="sig-name descname"><span class="pre">PostsConfig</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/apps.html#PostsConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.apps.PostsConfig" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.apps.config.AppConfig</span></code></p>
+<p>This class contains the app posts and set the verbose to ‘Posts, Comments, Likes’.
+The verbose will be shown in django admin.</p>
+<dl class="py attribute">
+<dt id="posts.apps.PostsConfig.name">
+<code class="sig-name descname"><span class="pre">name</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'posts'</span></em><a class="headerlink" href="#posts.apps.PostsConfig.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.apps.PostsConfig.verbose_name">
+<code class="sig-name descname"><span class="pre">verbose_name</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'Posts,</span> <span class="pre">Comments,</span> <span class="pre">Likes'</span></em><a class="headerlink" href="#posts.apps.PostsConfig.verbose_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-posts.forms">
+<span id="posts-forms-module"></span><h2>posts.forms module<a class="headerlink" href="#module-posts.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="posts.forms.CommentModelForm">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">posts.forms.</span></code><code class="sig-name descname"><span class="pre">CommentModelForm</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data=None</span></em>, <em class="sig-param"><span class="pre">files=None</span></em>, <em class="sig-param"><span class="pre">auto_id='id_%s'</span></em>, <em class="sig-param"><span class="pre">prefix=None</span></em>, <em class="sig-param"><span class="pre">initial=None</span></em>, <em class="sig-param"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></em>, <em class="sig-param"><span class="pre">label_suffix=None</span></em>, <em class="sig-param"><span class="pre">empty_permitted=False</span></em>, <em class="sig-param"><span class="pre">instance=None</span></em>, <em class="sig-param"><span class="pre">use_required_attribute=None</span></em>, <em class="sig-param"><span class="pre">renderer=None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/forms.html#CommentModelForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.forms.CommentModelForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<p>This class takes a helper class ModelForm that 
+lets you create a Form class from a Django model.</p>
+<dl class="py class">
+<dt id="posts.forms.CommentModelForm.Meta">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Meta</span></code><a class="reference internal" href="_modules/posts/forms.html#CommentModelForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.forms.CommentModelForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="posts.forms.CommentModelForm.Meta.fields">
+<code class="sig-name descname"><span class="pre">fields</span></code><em class="property"> <span class="pre">=</span> <span class="pre">('body',)</span></em><a class="headerlink" href="#posts.forms.CommentModelForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.forms.CommentModelForm.Meta.model">
+<code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#posts.forms.CommentModelForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.models.Comment" title="posts.models.Comment"><code class="xref py py-class docutils literal notranslate"><span class="pre">posts.models.Comment</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.forms.CommentModelForm.base_fields">
+<code class="sig-name descname"><span class="pre">base_fields</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'body':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#posts.forms.CommentModelForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.forms.CommentModelForm.declared_fields">
+<code class="sig-name descname"><span class="pre">declared_fields</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'body':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#posts.forms.CommentModelForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.forms.CommentModelForm.media">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">media</span></code><a class="headerlink" href="#posts.forms.CommentModelForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="posts.forms.PostModelForm">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">posts.forms.</span></code><code class="sig-name descname"><span class="pre">PostModelForm</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data=None</span></em>, <em class="sig-param"><span class="pre">files=None</span></em>, <em class="sig-param"><span class="pre">auto_id='id_%s'</span></em>, <em class="sig-param"><span class="pre">prefix=None</span></em>, <em class="sig-param"><span class="pre">initial=None</span></em>, <em class="sig-param"><span class="pre">error_class=&lt;class</span> <span class="pre">'django.forms.utils.ErrorList'&gt;</span></em>, <em class="sig-param"><span class="pre">label_suffix=None</span></em>, <em class="sig-param"><span class="pre">empty_permitted=False</span></em>, <em class="sig-param"><span class="pre">instance=None</span></em>, <em class="sig-param"><span class="pre">use_required_attribute=None</span></em>, <em class="sig-param"><span class="pre">renderer=None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/forms.html#PostModelForm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.forms.PostModelForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.forms.models.ModelForm</span></code></p>
+<p>This class takes a helper class ModelForm that 
+lets you create a Form class from a Django model.</p>
+<dl class="py class">
+<dt id="posts.forms.PostModelForm.Meta">
+<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">Meta</span></code><a class="reference internal" href="_modules/posts/forms.html#PostModelForm.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.forms.PostModelForm.Meta" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="posts.forms.PostModelForm.Meta.fields">
+<code class="sig-name descname"><span class="pre">fields</span></code><em class="property"> <span class="pre">=</span> <span class="pre">('content',</span> <span class="pre">'image')</span></em><a class="headerlink" href="#posts.forms.PostModelForm.Meta.fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.forms.PostModelForm.Meta.model">
+<code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#posts.forms.PostModelForm.Meta.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">posts.models.Post</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.forms.PostModelForm.base_fields">
+<code class="sig-name descname"><span class="pre">base_fields</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'content':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;,</span> <span class="pre">'image':</span> <span class="pre">&lt;django.forms.fields.ImageField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#posts.forms.PostModelForm.base_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.forms.PostModelForm.declared_fields">
+<code class="sig-name descname"><span class="pre">declared_fields</span></code><em class="property"> <span class="pre">=</span> <span class="pre">{'content':</span> <span class="pre">&lt;django.forms.fields.CharField</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#posts.forms.PostModelForm.declared_fields" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.forms.PostModelForm.media">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">media</span></code><a class="headerlink" href="#posts.forms.PostModelForm.media" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return all media required to render the widgets on this form.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-posts.models">
+<span id="posts-models-module"></span><h2>posts.models module<a class="headerlink" href="#module-posts.models" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="posts.models.Comment">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">posts.models.</span></code><code class="sig-name descname"><span class="pre">Comment</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/models.html#Comment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.models.Comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="simple">
+<dt>This class contains the essential fields and behaviors of the data you’re storing. </dt><dd><p>Each model maps to a single database table.</p>
+</dd>
+</dl>
+<p>This class is used to create a database table containg those attributes.</p>
+<dl class="py exception">
+<dt id="posts.models.Comment.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#posts.models.Comment.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="posts.models.Comment.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#posts.models.Comment.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Comment.body">
+<code class="sig-name descname"><span class="pre">body</span></code><a class="headerlink" href="#posts.models.Comment.body" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Comment.created">
+<code class="sig-name descname"><span class="pre">created</span></code><a class="headerlink" href="#posts.models.Comment.created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Comment.get_next_by_created">
+<code class="sig-name descname"><span class="pre">get_next_by_created</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=True</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Comment.get_next_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Comment.get_next_by_updated">
+<code class="sig-name descname"><span class="pre">get_next_by_updated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=True</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Comment.get_next_by_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Comment.get_previous_by_created">
+<code class="sig-name descname"><span class="pre">get_previous_by_created</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Comment.get_previous_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Comment.get_previous_by_updated">
+<code class="sig-name descname"><span class="pre">get_previous_by_updated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Comment.get_previous_by_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Comment.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#posts.models.Comment.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Comment.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#posts.models.Comment.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Comment.post">
+<code class="sig-name descname"><span class="pre">post</span></code><a class="headerlink" href="#posts.models.Comment.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Comment.post_id">
+<code class="sig-name descname"><span class="pre">post_id</span></code><a class="headerlink" href="#posts.models.Comment.post_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Comment.updated">
+<code class="sig-name descname"><span class="pre">updated</span></code><a class="headerlink" href="#posts.models.Comment.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Comment.user">
+<code class="sig-name descname"><span class="pre">user</span></code><a class="headerlink" href="#posts.models.Comment.user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Comment.user_id">
+<code class="sig-name descname"><span class="pre">user_id</span></code><a class="headerlink" href="#posts.models.Comment.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="posts.models.Like">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">posts.models.</span></code><code class="sig-name descname"><span class="pre">Like</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/models.html#Like"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.models.Like" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<p>This class contains the essential fields and behaviors of the data you’re storing. 
+Each model maps to a single database table.</p>
+<p>This class is used to create a database table containg those attributes.</p>
+<dl class="py exception">
+<dt id="posts.models.Like.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#posts.models.Like.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="posts.models.Like.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#posts.models.Like.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Like.created">
+<code class="sig-name descname"><span class="pre">created</span></code><a class="headerlink" href="#posts.models.Like.created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Like.get_next_by_created">
+<code class="sig-name descname"><span class="pre">get_next_by_created</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=True</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Like.get_next_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Like.get_next_by_updated">
+<code class="sig-name descname"><span class="pre">get_next_by_updated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=True</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Like.get_next_by_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Like.get_previous_by_created">
+<code class="sig-name descname"><span class="pre">get_previous_by_created</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Like.get_previous_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Like.get_previous_by_updated">
+<code class="sig-name descname"><span class="pre">get_previous_by_updated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Like.get_previous_by_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Like.get_value_display">
+<code class="sig-name descname"><span class="pre">get_value_display</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.CharField:</span> <span class="pre">value&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Like.get_value_display" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Like.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#posts.models.Like.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Like.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#posts.models.Like.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Like.post">
+<code class="sig-name descname"><span class="pre">post</span></code><a class="headerlink" href="#posts.models.Like.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Like.post_id">
+<code class="sig-name descname"><span class="pre">post_id</span></code><a class="headerlink" href="#posts.models.Like.post_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Like.updated">
+<code class="sig-name descname"><span class="pre">updated</span></code><a class="headerlink" href="#posts.models.Like.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Like.user">
+<code class="sig-name descname"><span class="pre">user</span></code><a class="headerlink" href="#posts.models.Like.user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Like.user_id">
+<code class="sig-name descname"><span class="pre">user_id</span></code><a class="headerlink" href="#posts.models.Like.user_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Like.value">
+<code class="sig-name descname"><span class="pre">value</span></code><a class="headerlink" href="#posts.models.Like.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="posts.models.Post">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">posts.models.</span></code><code class="sig-name descname"><span class="pre">Post</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/models.html#Post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.models.Post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.db.models.base.Model</span></code></p>
+<dl class="simple">
+<dt>This class contains the essential fields and behaviors of the data you’re storing. </dt><dd><p>Each model maps to a single database table.</p>
+</dd>
+</dl>
+<p>This class is used to create a database table containg those attributes.</p>
+<dl class="py exception">
+<dt id="posts.models.Post.DoesNotExist">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">DoesNotExist</span></code><a class="headerlink" href="#posts.models.Post.DoesNotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="posts.models.Post.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></code><a class="headerlink" href="#posts.models.Post.MultipleObjectsReturned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.core.exceptions.MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Post.author">
+<code class="sig-name descname"><span class="pre">author</span></code><a class="headerlink" href="#posts.models.Post.author" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Post.author_id">
+<code class="sig-name descname"><span class="pre">author_id</span></code><a class="headerlink" href="#posts.models.Post.author_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Post.comment_set">
+<code class="sig-name descname"><span class="pre">comment_set</span></code><a class="headerlink" href="#posts.models.Post.comment_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Post.content">
+<code class="sig-name descname"><span class="pre">content</span></code><a class="headerlink" href="#posts.models.Post.content" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Post.created">
+<code class="sig-name descname"><span class="pre">created</span></code><a class="headerlink" href="#posts.models.Post.created" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Post.get_next_by_created">
+<code class="sig-name descname"><span class="pre">get_next_by_created</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=True</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Post.get_next_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Post.get_next_by_updated">
+<code class="sig-name descname"><span class="pre">get_next_by_updated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=True</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Post.get_next_by_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Post.get_previous_by_created">
+<code class="sig-name descname"><span class="pre">get_previous_by_created</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Post.get_previous_by_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Post.get_previous_by_updated">
+<code class="sig-name descname"><span class="pre">get_previous_by_updated</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">*</span></em>, <em class="sig-param"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">updated&gt;</span></em>, <em class="sig-param"><span class="pre">is_next=False</span></em>, <em class="sig-param"><span class="pre">**kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#posts.models.Post.get_previous_by_updated" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Post.id">
+<code class="sig-name descname"><span class="pre">id</span></code><a class="headerlink" href="#posts.models.Post.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Post.image">
+<code class="sig-name descname"><span class="pre">image</span></code><a class="headerlink" href="#posts.models.Post.image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Just like the FileDescriptor, but for ImageFields. The only difference is
+assigning the width/height to the width_field/height_field, if appropriate.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Post.like_set">
+<code class="sig-name descname"><span class="pre">like_set</span></code><a class="headerlink" href="#posts.models.Post.like_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Post.liked">
+<code class="sig-name descname"><span class="pre">liked</span></code><a class="headerlink" href="#posts.models.Post.liked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Post.num_comments">
+<code class="sig-name descname"><span class="pre">num_comments</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/models.html#Post.num_comments"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.models.Post.num_comments" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will return the number of comments received in a post.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – self - used to access the attributes and methods of the class in python</p></li>
+<li><p><strong>type</strong> – reference</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="posts.models.Post.num_likes">
+<code class="sig-name descname"><span class="pre">num_likes</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/models.html#Post.num_likes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.models.Post.num_likes" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will return the number of likes received in a post.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – self - used to access the attributes and methods of the class in python</p></li>
+<li><p><strong>type</strong> – reference</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Post.objects">
+<code class="sig-name descname"><span class="pre">objects</span></code><em class="property"> <span class="pre">=</span> <span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#posts.models.Post.objects" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.models.Post.updated">
+<code class="sig-name descname"><span class="pre">updated</span></code><a class="headerlink" href="#posts.models.Post.updated" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-posts.tests">
+<span id="posts-tests-module"></span><h2>posts.tests module<a class="headerlink" href="#module-posts.tests" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-posts.urls">
+<span id="posts-urls-module"></span><h2>posts.urls module<a class="headerlink" href="#module-posts.urls" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-posts.views">
+<span id="posts-views-module"></span><h2>posts.views module<a class="headerlink" href="#module-posts.views" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="posts.views.PostDeleteView">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">posts.views.</span></code><code class="sig-name descname"><span class="pre">PostDeleteView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#PostDeleteView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.views.PostDeleteView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.views.generic.edit.DeleteView</span></code></p>
+<p>PostDeleteView inherits from the DeleteView. These allow you to structure your views and reuse 
+code by harnessing inheritance. All views inherit from the View class, which handles linking the 
+view into the URLs, HTTP method dispatching and other common features.</p>
+<dl class="py method">
+<dt id="posts.views.PostDeleteView.get_object">
+<code class="sig-name descname"><span class="pre">get_object</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#PostDeleteView.get_object"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.views.PostDeleteView.get_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method followed a claas based view method. If the user is the owner of the post only then 
+that particular user will able to delete the post, first that particular user will able to go 
+into given template link and able to delete the post and will get back to the attached success 
+url page after deletation. However if the user is not the owner of the post then the user will 
+not be able to delete the post even if he has the url of the post. For this case it will show a 
+error message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – self - used to access the attributes and methods of the class in python</p></li>
+<li><p><strong>type</strong> – reference</p></li>
+<li><p><strong>name</strong> – <a href="#id1"><span class="problematic" id="id2">*</span></a>args - used to pass an arbitrary number of arguments to a function</p></li>
+<li><p><strong>type</strong> – pass variable</p></li>
+<li><p><strong>name</strong> – <a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs - used to pass key-value parameters to the function</p></li>
+<li><p><strong>type</strong> – pass variable</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>returns variable number</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns key-value parameters</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.views.PostDeleteView.model">
+<code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#posts.views.PostDeleteView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">posts.models.Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.views.PostDeleteView.success_url">
+<code class="sig-name descname"><span class="pre">success_url</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'/posts/'</span></em><a class="headerlink" href="#posts.views.PostDeleteView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.views.PostDeleteView.template_name">
+<code class="sig-name descname"><span class="pre">template_name</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'posts/confirm_del.html'</span></em><a class="headerlink" href="#posts.views.PostDeleteView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="posts.views.PostUpdateView">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">posts.views.</span></code><code class="sig-name descname"><span class="pre">PostUpdateView</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#PostUpdateView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.views.PostUpdateView" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django.views.generic.edit.UpdateView</span></code></p>
+<p>PostUpdateView inherits from the UpdateView. These allow you to structure your views and 
+reuse code by harnessing inheritance. All views inherit from the View class, which handles
+linking the view into the URLs, HTTP method dispatching and other common features.</p>
+<dl class="py attribute">
+<dt id="posts.views.PostUpdateView.form_class">
+<code class="sig-name descname"><span class="pre">form_class</span></code><a class="headerlink" href="#posts.views.PostUpdateView.form_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.forms.PostModelForm" title="posts.forms.PostModelForm"><code class="xref py py-class docutils literal notranslate"><span class="pre">posts.forms.PostModelForm</span></code></a></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="posts.views.PostUpdateView.form_valid">
+<code class="sig-name descname"><span class="pre">form_valid</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#PostUpdateView.form_valid"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.views.PostUpdateView.form_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method followed a claas based view method. If the user is the owner of the post only 
+then that particular user will able to update the post, first that particular user will able
+to go into given template link and able to update the post and will get back to the attached 
+success url page after updating the post. However if the user is not the owner of the post then 
+the user will not be able to update the post even if he has the url of the post. For this case 
+it will show a error message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – self - used to access the attributes and methods of the class in python</p></li>
+<li><p><strong>type</strong> – reference</p></li>
+<li><p><strong>name</strong> – form - used to take a form</p></li>
+<li><p><strong>type</strong> – take form</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>returns the form</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.views.PostUpdateView.model">
+<code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#posts.views.PostUpdateView.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#posts.models.Post" title="posts.models.Post"><code class="xref py py-class docutils literal notranslate"><span class="pre">posts.models.Post</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.views.PostUpdateView.success_url">
+<code class="sig-name descname"><span class="pre">success_url</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'/posts/'</span></em><a class="headerlink" href="#posts.views.PostUpdateView.success_url" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="posts.views.PostUpdateView.template_name">
+<code class="sig-name descname"><span class="pre">template_name</span></code><em class="property"> <span class="pre">=</span> <span class="pre">'posts/update.html'</span></em><a class="headerlink" href="#posts.views.PostUpdateView.template_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="posts.views.like_unlike_post">
+<code class="sig-prename descclassname"><span class="pre">posts.views.</span></code><code class="sig-name descname"><span class="pre">like_unlike_post</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#like_unlike_post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.views.like_unlike_post" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will create a like or unlike request on posts and upon successfull insertion, it will 
+update the like or unlike. If the post status is liked will update it to unliked otherwise update 
+it to liked. If the post previouly existed and its status is liked then will update it to unliked 
+othwise will update it to liked.
+This method will only load this page if the user is logged in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>redirect the posts page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="posts.views.post_comment_create_and_list_view">
+<code class="sig-prename descclassname"><span class="pre">posts.views.</span></code><code class="sig-name descname"><span class="pre">post_comment_create_and_list_view</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/posts/views.html#post_comment_create_and_list_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#posts.views.post_comment_create_and_list_view" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method will create a post request on two separate forms post form and comment form and upon 
+successfull insertion, it will update the form and will show in the post content or comment body.
+This method will only load this page if the user is logged in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – request - used to generate responses(Http) depending on the request that it receives</p></li>
+<li><p><strong>type</strong> – HttpResponse</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>returns posts page</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-posts">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-posts" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">The_NSU_Loop</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">src</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="The_NSU_Loop.html">The_NSU_Loop package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jackpot.html">jackpot package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">manage module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="payment.html">payment package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">posts package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="profiles.html">profiles package</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="modules.html">src</a><ul>
+      <li>Previous: <a href="payment.migrations.html" title="previous chapter">payment.migrations package</a></li>
+      <li>Next: <a href="posts.migrations.html" title="next chapter">posts.migrations package</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Simon.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/posts.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
